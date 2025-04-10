@@ -1,4 +1,5 @@
 import useFetch from "../useFetch"
+import { Link } from "react-router-dom"
 
 const Events = () => {
     
@@ -8,14 +9,15 @@ const Events = () => {
     console.log(data)
     const toRanderProductsData = data?.map((x) => {
         return (
-            <div key={x._id}>
+        
+            <div className="col-md-4" key={x._id}>
                 
-                <div class="col-md-4">
+                <Link to="event`${x._id}`" >
                     
                         <div className="card mb-3">
                     <img className="img-fluid"   src={x.eventImgUrl} alt="image"/>
                     <div class="card-img-overlay">
-                        <button class="btn btn-light" ><p class="card-title">{x.eventType}</p></button>
+                        <button className="btn btn-light" ><p class="card-title">{x.eventType}</p></button>
 
                     </div>
                     
@@ -28,12 +30,12 @@ const Events = () => {
                     <strong>{x.eventName}</strong>
                 </div>
                 </div>
-                </div>
                 
                 
-
                 
 
+                
+                </Link>
             </div>
         )
     })
@@ -42,8 +44,10 @@ const Events = () => {
     return(
         <>
         <p>Hi Akshay</p>
+        <div className="container">
         <div className="row">
         {toRanderProductsData}
+        </div>
         </div>
         </>
     )
