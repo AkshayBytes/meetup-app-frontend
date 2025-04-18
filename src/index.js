@@ -12,8 +12,11 @@ const router = createBrowserRouter([
     element: <App/>
   },
   {
-    path: "events/:eventId",
+    path: "/events/:eventId",
     element: <EventDetails/>
+  },
+  {
+    path: ""
   }
 ])
 
