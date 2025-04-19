@@ -17,9 +17,10 @@ const Events = () => {
 
     const [eventSearchInput , setEventSearchInput] = useState();
     const inputHandler = (event) => {
-          let firstLetterUppercaseElseAllLower = event.target.value.toLowerCase().split('');
+          let firstLetterUppercaseElseAllLower = event.target.value.toLowerCase();
+        //   let firstLetterUppercaseElseAllLower = ["s", "o","m","e","t","h","i","n","g"]
           for(let i = 0; i < firstLetterUppercaseElseAllLower.length; i++){
-            firstLetterUppercaseElseAllLower = firstLetterUppercaseElseAllLower[0].toUpperCase() + firstLetterUppercaseElseAllLower
+            firstLetterUppercaseElseAllLower = firstLetterUppercaseElseAllLower.charAt(0).toUpperCase() + firstLetterUppercaseElseAllLower.slice(1)
           }
           console.log( firstLetterUppercaseElseAllLower)
 
