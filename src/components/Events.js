@@ -7,28 +7,31 @@ import { Link } from "react-router-dom"
 
 const Events = () => {
     const [theEventType, setTheEventType] = useState("All")
-    console.log(theEventType)
+    // console.log(theEventType)
 
 
     const { data, loading, error } = useFetch("https://meetup-app-backend-five.vercel.app/")
     const theSelectedEventType = theEventType == "All" ? data : data?.filter((x) => x.eventType == theEventType) 
 
-    console.log(data)
+    // console.log(data)
 
     const [eventSearchInput , setEventSearchInput] = useState();
     const inputHandler = (event) => {
-          let firstLetterUppercaseElseAllLower = event.target.value.toLowerCase();
+          const value = event.target.value;
         //   let firstLetterUppercaseElseAllLower = ["s", "o","m","e","t","h","i","n","g"]
-          for(let i = 0; i < firstLetterUppercaseElseAllLower.length; i++){
-            firstLetterUppercaseElseAllLower = firstLetterUppercaseElseAllLower.charAt(0).toUpperCase() + firstLetterUppercaseElseAllLower.slice(1)
-          }
-          console.log( firstLetterUppercaseElseAllLower)
+        
+            
+          
+          
 
 
 
-        setEventSearchInput(firstLetterUppercaseElseAllLower)
+        setEventSearchInput(value);
     } 
-    const toRanderProductsData = theSelectedEventType?.map((x) => {
+
+    const finalFilteredEvents = theSelectedEventType?.filter((x) => x.eventName.toLowerCase().includes((eventSearchInput || "").toLowerCase()));
+    
+    const toRanderProductsData = finalFilteredEvents?.map((x) => {
         return (
            
             
@@ -75,7 +78,7 @@ const Events = () => {
         </Link>
         </div>
         <div className="col">
-          <input type="text" id="eventSearchInputId" onChange={inputHandler} />
+          <input type="text" id="eventSearchInputId" onChange={inputHandler} className="form-control" placeholder="Search by title" />
         </div>
         </div>
         <br/>
@@ -87,7 +90,8 @@ const Events = () => {
         <h1>Meetup Events</h1> 
         </div>
         <div className="col d-flex justify-content-end">
-            <select onChange={(e) => setTheEventType(e.target.value) } id="typeSelect">
+            <select onChange={(e) => setTheEventType(e.target.value) } id="typeSelect" class="form-select" placeholder="Search by title" >
+                <option selected>Select Event Type</option>
                 <option value="All">All</option>
                 <option value="offline">Offline</option>
                 <option value="online">Online</option>
@@ -97,7 +101,8 @@ const Events = () => {
         <br/>
 
         <div className="row">
-            {console.log(eventSearchInput)}
+            {/* {console.log(eventSearchInput)}
+            {console.log(finalFilteredEvents)} */}
         {toRanderProductsData}
         </div>
         </div>

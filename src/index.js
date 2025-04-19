@@ -14,10 +14,8 @@ const router = createBrowserRouter([
   {
     path: "/events/:eventId",
     element: <EventDetails/>
-  },
-  {
-    path: ""
   }
+  
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
