@@ -2,6 +2,9 @@ import useFetch from "../useFetch"
 import { useParams } from "react-router-dom"
 import meetupLogo from "./meetup-1.svg";
 import { Link } from "react-router-dom"
+import placepinlogo from './pin.png'
+import rupeeslogo from './ruppe.png'
+import clocklogo from './clock.png'
 
 
 
@@ -37,8 +40,10 @@ function EventDetails(){
             <p>Hosted By: <strong>{eventData.hostedBy}</strong></p>
             
             <img src={`${eventData.eventImgUrl}`}/>
-
+            <br/>
+            <br/>
             <h2>Details: </h2>
+            <br/>
             <p>{eventData.details}</p>
             <p><strong>Additional Information: </strong></p>
             <p><strong>Dress Code: </strong>{eventData.dressCode}</p>
@@ -47,13 +52,13 @@ function EventDetails(){
             <p>{eventData.eventTags[0]}  {eventData.eventTags[1]}</p>
             </div>
             <div className="col">
-            <p>{eventData.eventDate} at {eventData.eventTime} to</p>
+            <p><img src={clocklogo} alt="clock logo" width="20"/>  {eventData.eventDate} at {eventData.eventTime} to</p>
             <p>{eventData.eventEnding}</p>
             
             <br/>
-            <p>{eventData.address}</p>
+            <p><img src={placepinlogo} alt="pin logo" width="20"/>  {eventData.address}</p>
             <br/>
-            <p>{eventData.price}</p>
+            <p><img src={rupeeslogo} alt="pin logo" width="20"/>{eventData.price}</p>
             <h2>Speakers: (2)</h2>
             <img src={`${eventData.speakerOneimgUrl}`}/>
             <p><strong>{eventData.speakerOnename}</strong></p>
