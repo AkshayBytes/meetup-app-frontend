@@ -60,12 +60,18 @@ function EventDetails(){
             <br/>
             <p><img src={rupeeslogo} alt="pin logo" width="20"/>{eventData.price}</p>
             <h2>Speakers: (2)</h2>
+            <div className="row">
+            <div className="col">
             <img src={`${eventData.speakerOneimgUrl}`}/>
             <p><strong>{eventData.speakerOnename}</strong></p>
             <p>{eventData.speakerOnepost}</p>
+            </div>
+            <div className="col">
             <img src={`${eventData.speakerTwoimgUrl}`}/>
             <p><strong>{eventData.speakerTwoname}</strong></p>
             <p>{eventData.speakerTwopost}</p>
+            </div>
+            </div>
             <p>RSVP</p>
             </div>
             </div>
