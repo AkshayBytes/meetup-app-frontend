@@ -49,11 +49,11 @@ function EventDetails(){
             <p><strong>Dress Code: </strong>{eventData.dressCode}</p>
             <p><strong>Age Restriction: </strong></p>
             <h3>Event Tags: </h3>
-            <p>{eventData.eventTags[0]}  {eventData.eventTags[1]}</p>
+            <p className="btn btn-danger">{eventData.eventTags[0]}</p> <p className="btn btn-danger"> {eventData.eventTags[1]}</p>
             </div>
             <div className="col">
-            <p><img src={clocklogo} alt="clock logo" width="20"/>  {eventData.eventDate} at {eventData.eventTime} to</p>
-            <p>{eventData.eventEnding}</p>
+            <p><img src={clocklogo} alt="clock logo" width="20"/>  {eventData.eventDate} at {eventData.eventTime} to   </p>
+            <p>     {eventData.eventEnding}</p>
             
             <br/>
             <p><img src={placepinlogo} alt="pin logo" width="20"/>  {eventData.address}</p>
@@ -62,17 +62,17 @@ function EventDetails(){
             <h2>Speakers: (2)</h2>
             <div className="row">
             <div className="col">
-            <img  style={{height: "400px", objectFit:"cover"}} src={`${eventData.speakerOneimgUrl}`} alt="Speaker 1"/>
+            <img  style={{height: "100px", objectFit:"cover"}} src={`${eventData.speakerOneimgUrl}`} alt="Speaker 1"/>
             <p><strong>{eventData.speakerOnename}</strong></p>
             <p>{eventData.speakerOnepost}</p>
             </div>
             <div className="col">
-            <img  style={{height: "400px", objectFit:"cover"}} src={`${eventData.speakerTwoimgUrl}`} alt="Speaker 2"/>
+            <img  style={{height: "100px", objectFit:"cover"}} src={`${eventData.speakerTwoimgUrl}`} alt="Speaker 2"/>
             <p><strong>{eventData.speakerTwoname}</strong></p>
             <p>{eventData.speakerTwopost}</p>
             </div>
             </div>
-            <p>RSVP</p>
+            <p className="btn btn-danger">RSVP</p>
             </div>
             </div>
             </div>
